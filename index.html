@@ -1,239 +1,398 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Separación Responsable de Residuos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Separación Responsable de Residuos - CBTis 118</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Roboto&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --verde-oscuro: #2e7d32;
-      --verde-claro: #a5d6a7;
-      --verde-medio: #66bb6a;
-      --fondo: #e8f5e9;
-      --blanco: #ffffff;
-      --sombra: rgba(0, 0, 0, 0.1);
-    }
-
+    /* Reset y base */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
       scroll-behavior: smooth;
     }
-
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--fondo);
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--verde-oscuro), var(--verde-medio));
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-      box-shadow: 0 4px 8px var(--sombra);
-    }
-
-    header h1 {
-      font-size: 2.2em;
-      margin-bottom: 10px;
-    }
-
-    header h2 {
-      font-size: 1.1em;
-      font-weight: normal;
-    }
-
-    header p {
-      font-size: 1.1em;
-      margin-top: 12px;
-      color: #e0f2f1;
-      font-style: italic;
-    }
-
-    nav {
+      font-family: 'Poppins', 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      color: #2e7d32;
+      min-height: 100vh;
       display: flex;
-      flex-wrap: wrap;
-      background-color: var(--verde-claro);
-      justify-content: center;
-      border-bottom: 2px solid var(--verde-medio);
+      overflow-x: hidden;
     }
 
+    /* Menu lateral */
+    nav {
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      width: 250px;
+      background: linear-gradient(180deg, #2e7d32 0%, #66bb6a 100%);
+      box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      z-index: 10;
+    }
+    nav h1 {
+      color: #e8f5e9;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+    }
     nav a {
-      padding: 15px 20px;
+      color: #dcedc8;
+      padding: 15px 25px;
       text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: background 0.3s ease, color 0.3s ease;
+      border-left: 5px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-radius: 0 25px 25px 0;
+      margin: 5px 15px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    nav a svg {
+      fill: #dcedc8;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    nav a:hover, nav a.active {
+      background: #a5d6a7;
       color: #1b5e20;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      border-radius: 5px 5px 0 0;
-      margin: 5px;
-      cursor: pointer;
+      border-left-color: #1b5e20;
+      box-shadow: 0 4px 10px rgba(27, 94, 32, 0.4);
     }
 
-    nav a:hover {
-      background-color: var(--verde-medio);
-      color: white;
+    /* Contenido principal */
+    main {
+      margin-left: 250px;
+      padding: 30px 40px;
+      flex: 1;
+      overflow-y: auto;
+      max-width: calc(100vw - 250px);
     }
 
-    .content {
-      display: none;
-      padding: 30px 20px;
-      animation: fadeIn 1s ease;
-      background-color: var(--blanco);
-      margin: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px var(--sombra);
-    }
-
-    .active {
-      display: block;
-    }
-
+    /* Títulos */
     h2 {
-      color: var(--verde-oscuro);
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #1b5e20;
+      font-size: 2rem;
+      text-shadow: 1px 1px 2px #a5d6a7;
+    }
+    h3 {
+      font-weight: 600;
       margin-bottom: 15px;
+      color: #2e7d32;
     }
 
+    /* Tarjetas para contenido */
+    section.card {
+      background: white;
+      padding: 25px 30px;
+      margin-bottom: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s ease;
+    }
+    section.card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Listas estilizadas */
     ul {
-      list-style: none;
+      list-style-type: none;
+      margin-left: 10px;
       padding-left: 0;
     }
-
     ul li {
-      background-color: var(--verde-claro);
-      margin: 8px 0;
-      padding: 10px 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px var(--sombra);
+      background: #a5d6a7;
+      padding: 12px 20px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 7px rgba(27, 94, 32, 0.3);
+      font-weight: 600;
+      color: #1b5e20;
+      transition: background 0.25s ease;
+    }
+    ul li:hover {
+      background: #81c784;
+      color: #114d1b;
+      box-shadow: 0 4px 15px rgba(17, 77, 27, 0.5);
     }
 
+    /* Párrafos */
     p {
-      margin-bottom: 15px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
+    /* Botones */
+    a.button {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 5px 12px rgba(102, 187, 106, 0.6);
+      margin-top: 10px;
+      user-select: none;
+    }
+    a.button:hover {
+      background: #2e7d32;
+      box-shadow: 0 8px 20px rgba(46, 125, 50, 0.8);
+    }
+
+    /* Imagenes */
+    .img-center {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      margin: 25px auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .img-center:hover {
+      transform: scale(1.05);
+    }
+
+    /* Videos responsivos */
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      margin: 20px 0 40px 0;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .video-container iframe {
+      position: absolute;
+      top:0; left:0;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      border: none;
+    }
+
+    /* Footer */
     footer {
-      background-color: #c8e6c9;
-      padding: 20px;
       text-align: center;
-      color: #2e7d32;
-      font-weight: bold;
-      border-top: 2px solid #81c784;
+      padding: 25px 15px;
+      background: #2e7d32;
+      color: #e8f5e9;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.15);
+      margin-top: 30px;
+      user-select: none;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+    /* Scrollbar para main */
+    main::-webkit-scrollbar {
+      width: 8px;
+    }
+    main::-webkit-scrollbar-track {
+      background: #c8e6c9;
+      border-radius: 8px;
+    }
+    main::-webkit-scrollbar-thumb {
+      background: #66bb6a;
+      border-radius: 8px;
+    }
+
+    /* Responsive */
+    @media(max-width: 900px) {
+      nav {
+        width: 60px;
+        padding-top: 20px;
+      }
+      nav h1 {
+        display: none;
+      }
+      nav a {
+        padding: 15px 8px;
+        font-size: 0;
+        margin: 7px 5px;
+        justify-content: center;
+        border-radius: 15px;
+      }
+      nav a svg {
+        width: 28px; height: 28px;
+      }
+      main {
+        margin-left: 60px;
+        padding: 25px 15px;
+        max-width: calc(100vw - 60px);
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Separación Responsable de Residuos Sólidos</h1>
-    <h2>y desarrollo de hábitos conscientes de consumo en el CBTis 118 y la comunidad</h2>
-    <p>♻️ Educar en conciencia, actuar por el planeta.</p>
-  </header>
-
   <nav>
-    <a onclick="showTab('inicio')">Inicio</a>
-    <a onclick="showTab('ciencias')">Ciencias Sociales</a>
-    <a onclick="showTab('puericultura')">Puericultura</a>
-    <a onclick="showTab('energia')">Conservación de la Energía</a>
-    <a onclick="showTab('matematicas')">Pensamiento Matemático</a>
-    <a onclick="showTab('ingles')">Inglés</a>
-    <a onclick="showTab('lengua')">Lengua y Comunicación</a>
+    <h1>CBTis 118 ♻️</h1>
+    <a href="#inicio" class="active" onclick="activateTab(event)">
+      <svg viewBox="0 0 24 24" ><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span class="nav-text">Inicio</span>
+    </a>
+    <a href="#ciencias" onclick="activateTab(event)">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      <span class="nav-text">Ciencias Sociales</span>
+    </a>
+    <a href="#puericultura" onclick="activateTab(event)">
+      <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 3.87 3.13 7 7 7s7-3.13 7-7a7 7 0 0 0-7-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+      <span class="nav-text">Puericultura</span>
+    </a>
+    <a href="#energia" onclick="activateTab(event)">
+      <svg viewBox="0 0 24 24"><path d="M7 22h10l-5-20z"/></svg>
+      <span class="nav-text">Conservación Energía</span>
+    </a>
+    <a href="#matematicas" onclick="activateTab(event)">
+      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14H7v-2h3v2zm0-4H7v-2h3v2zm4 4h-3v-2h3v2zm0-4h-3v-2h3v2z"/></svg>
+      <span class="nav-text">Pensamiento Matemático</span>
+    </a>
+    <a href="#ingles" onclick="activateTab(event)">
+      <svg viewBox="0 0 24 24"><path d="M12 4l1.41 1.41-3.17 3.17 3.17 3.17L12 12l-6-6 6-6z"/></svg>
+      <span class="nav-text">Inglés</span>
+    </a>
+    <a href="#lengua" onclick="activateTab(event)">
+      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+      <span class="nav-text">Lengua y Comunicación</span>
+    </a>
   </nav>
 
-  <div id="inicio" class="content active">
-    <h2>🎯 Objetivo General</h2>
-    <p>La comunidad escolar del CBTis 118 (estudiantes, personal administrativo y docentes) fomentan en la comunidad cercana al plantel la conciencia y la práctica sobre la separación de residuos sólidos a partir de la difusión, práctica y desarrollo de hábitos de consumo conscientes que disminuyan la generación de dichos residuos tanto en la escuela como en la comunidad.</p>
-    <h2>🔍 Objetivos Específicos</h2>
-    <ul>
-      <li>1. Comprender la separación de residuos sólidos: Brindar capacitación a la comunidad escolar para que comprenda la importancia y el proceso adecuado de separación de residuos sólidos.</li>
-      <li>2. Practicar la separación responsable: Implementar estrategias (como el aprendizaje basado en retos) para garantizar la separación efectiva de residuos sólidos en el centro escolar y en las ubicaciones elegidas para intervenir en la comunidad.</li>
-      <li>3. Distribuir residuos a empresas recicladoras: Gestionar eficientemente los residuos sólidos, promoviendo distribución a empresas recicladoras locales.</li>
-      <li>4. Difundir los logros: Compartir las acciones y resultados obtenidos para sensibilizar y motivar a otros a separar los residuos, esto a través de los espacios digitales generados.</li>
-    </ul>
-  </div>
+  <main>
+    <section id="inicio" class="card active">
+      <h2>🎯 Objetivo General</h2>
+      <p>La comunidad escolar del CBTis 118 (estudiantes, personal administrativo y docentes) fomentan en la comunidad cercana al plantel la conciencia y la práctica sobre la separación de residuos sólidos a partir de la difusión, práctica y desarrollo de hábitos de consumo conscientes que disminuyan la generación de dichos residuos tanto en la escuela como en la comunidad.</p>
+      <h2>🔍 Objetivos Específicos</h2>
+      <ul>
+        <li>Comprender la separación de residuos sólidos: Brindar capacitación a la comunidad escolar para que comprenda la importancia y el proceso adecuado de separación de residuos sólidos.</li>
+        <li>Practicar la separación responsable: Implementar estrategias (como el aprendizaje basado en retos) para garantizar la separación efectiva de residuos sólidos en el centro escolar y en la comunidad.</li>
+        <li>Distribuir residuos a empresas recicladoras: Gestionar eficientemente los residuos sólidos, promoviendo distribución a empresas recicladoras locales.</li>
+        <li>Difundir los logros: Compartir las acciones y resultados obtenidos para sensibilizar y motivar a otros a separar los residuos, a través de espacios digitales generados.</li>
+      </ul>
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80" alt="Residuos separados" class="img-center" loading="lazy" />
+    </section>
 
-  <div id="ciencias" class="content">
-    <h2>🌍 Ciencias Sociales</h2>
-    <p>Reflexionamos sobre el impacto social, legal y cultural del consumo.</p>
-    <div style="text-align:center; margin-top:20px;">
-      <a href="https://vt.tiktok.com/ZSkCSHyUg/" target="_blank" style="background-color:#25d366; color:white; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:bold;">
-        ▶️ Ver video en TikTok
-      </a>
-    </div>
-  </div>
+    <section id="ciencias" class="card" style="display:none;">
+      <h2>🌍 Ciencias Sociales</h2>
+      <p>Reflexionamos sobre el impacto social, legal y cultural del consumo.</p>
+      <div style="text-align:center; margin-top:20px;">
+        <a href="https://vt.tiktok.com/ZSkCSHyUg/" target="_blank" class="button">▶️ Ver video en TikTok</a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1533649989848-d68cc5bdb8fa?auto=format&fit=crop&w=900&q=80" alt="Cultura y sociedad" class="img-center" loading="lazy" />
+    </section>
 
-  <div id="puericultura" class="content">
-    <h2>🧸 Puericultura</h2>
-    <p>Exploramos el impacto del uso de pañales en la salud, economía y medio ambiente.</p>
-    <p>📄 <a href="Green-Baby-Health.pdf" target="_blank">Abrir presentación PDF</a></p>
-    <h3>🎥 Video:</h3>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/Kk55Ax3UBnY" frameborder="0" allowfullscreen style="border-radius:10px;"></iframe>
-  </div>
+    <section id="puericultura" class="card" style="display:none;">
+      <h2>🧸 Puericultura</h2>
+      <p>Exploramos el impacto del uso de pañales en la salud, economía y medio ambiente.</p>
+      <a href="Green-Baby-Health.pdf" target="_blank" class="button">📄 Abrir presentación PDF</a>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Kk55Ax3UBnY" allowfullscreen title="Video sobre pañales"></iframe>
+      </div>
+      <img src="https://images.unsplash.com/photo-1534367610341-9cbbd7d19037?auto=format&fit=crop&w=900&q=80" alt="Bebé saludable" class="img-center" loading="lazy" />
+    </section>
 
-  <div id="energia" class="content">
-    <h2>⚛️ Conservación de la Energía</h2>
-    <p>Proyecto sobre microplásticos y su efecto en órganos humanos:</p>
-    <ul>
-      <li>❤️ Corazón: rigidez arterial</li>
-      <li>🧠 Cerebro: daño neurológico</li>
-      <li>💨 Pulmones: fibrosis</li>
-      <li>🧪 Hígado: alteración celular</li>
-      <li>🚰 Riñones: daño de nefronas</li>
-    </ul>
-    <a href="reporte-microplasticos.pdf" target="_blank">📄 Descargar reporte completo</a>
-  </div>
+    <section id="energia" class="card" style="display:none;">
+      <h2>⚛️ Conservación de la Energía</h2>
+      <p>Proyecto sobre microplásticos y su efecto en órganos humanos:</p>
+      <ul>
+        <li>❤️ Corazón: rigidez arterial</li>
+        <li>🧠 Cerebro: daño neurológico</li>
+        <li>💨 Pulmones: fibrosis</li>
+        <li>🧪 Hígado: alteración celular</li>
+        <li>🚰 Riñones: daño de nefronas</li>
+      </ul>
+      <a href="reporte-microplasticos.pdf" target="_blank">📄 Descargar reporte completo</a>
+      <img src="https://images.unsplash.com/photo-1523983302319-dcbf8d0a3cc9?auto=format&fit=crop&w=900&q=80" alt="Microplásticos" class="img-center" loading="lazy" />
+    </section>
 
-  <div id="matematicas" class="content">
-    <h2>📊 Pensamiento Matemático</h2>
-    <p>Aplicamos matemáticas en una colecta de latas:</p>
-    <ul>
-      <li>Cada alumno debía juntar 100 latas.</li>
-      <li>Peso promedio por lata: 14 gramos.</li>
-      <li>100 latas = 1.4 kg → 30 alumnos = 42 kg.</li>
-      <li>Precio por kilo: $20 → Total: $840.</li>
-    </ul>
-    <h3>🧠 Reflexión</h3>
-    <p>Esta actividad muestra cómo lo que se considera basura puede tener valor económico y educativo.</p>
-  </div>
+    <section id="matematicas" class="card" style="display:none;">
+      <h2>📊 Pensamiento Matemático</h2>
+      <p>Aplicamos matemáticas en una colecta de latas:</p>
+      <ul>
+        <li>Cada alumno debía juntar 100 latas.</li>
+        <li>Peso promedio por lata: 14 gramos.</li>
+        <li>100 latas = 1.4 kg → 30 alumnos = 42 kg.</li>
+        <li>Precio por kilo: $20 → Total: $840.</li>
+      </ul>
+      <h3>🧠 Reflexión</h3>
+      <p>Esta actividad muestra cómo lo que se considera basura puede tener valor económico y educativo.</p>
+      <img src="https://images.unsplash.com/photo-1579389086310-3f73f151dcb3?auto=format&fit=crop&w=900&q=80" alt="Matemáticas y reciclaje" class="img-center" loading="lazy" />
+    </section>
 
-  <div id="ingles" class="content">
-    <h2>🌐 Inglés</h2>
-    <h3>♻️ Poster: Sort Your Waste</h3>
-    <div style="text-align:center; margin: 20px 0;">
-      <a href='https://postimg.cc/HVFqNJv2' target='_blank'>
-        <img src='https://i.postimg.cc/Nj0Q5m1W/image-edit-20250614201057.jpg' border='0' alt='Poster' style="max-width:100%; border-radius: 10px;">
-      </a>
-    </div>
-  </div>
+    <section id="ingles" class="card" style="display:none;">
+      <h2>🇺🇸 Inglés</h2>
+      <p>Vocabulario relacionado con fenómenos meteorológicos:</p>
+      <ul>
+        <li>Blizzard → tormenta de nieve intensa</li>
+        <li>Thunderstorm → tormenta con truenos</li>
+        <li>Ice storm → tormenta de hielo</li>
+        <li>Tornado → tromba o tornado</li>
+      </ul>
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Fenómenos meteorológicos" class="img-center" loading="lazy" />
+    </section>
 
-  <div id="lengua" class="content">
-    <h2>📚 Lengua y Comunicación</h2>
-    <p>Elaboramos una infografía para concientizar sobre el entorno desde el lenguaje visual y escrito.</p>
-    <h3>🖼️ Vista previa:</h3>
-    <div style="text-align:center;">
-      <a href='https://postimg.cc/S22tF9Qd' target='_blank'>
-        <img src='https://i.postimg.cc/gJN9hyfC/Infograf-a-PAEC-0001.jpg' border='0' alt='Infografía' width="100%" style="max-width:600px; border-radius: 10px;">
-      </a>
-    </div>
-    <p style="text-align:center;">
-      <a href="https://drive.google.com/file/d/1H6ZZ5uhOPSmqSANsLoLFWGrwXV7oEOmy/view?usp=drivesdk" target="_blank">📥 Descargar infografía PDF</a>
-    </p>
-  </div>
+    <section id="lengua" class="card" style="display:none;">
+      <h2>📚 Lengua y Comunicación</h2>
+      <p>Exploramos los géneros literarios y sus características:</p>
+      <ul>
+        <li><strong>Épico:</strong> Narra hechos heroicos.</li>
+        <li><strong>Lírico:</strong> Expresa sentimientos y emociones.</li>
+        <li><strong>Narrativo:</strong> Relata historias reales o ficticias.</li>
+        <li><strong>Dramático:</strong> Representa acciones para ser actuadas.</li>
+      </ul>
+      <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80" alt="Libros y lectura" class="img-center" loading="lazy" />
+    </section>
+  </main>
 
   <footer>
-    Créditos: Fonseca Arias Karen · López Sánchez Ángel Dorian · Mendoza Benítez Catherine Linette · Nieves Moya María Guadalupe · Santos Pérez Andrea
+    CBTis 118 - Proyecto de Conciencia Ambiental ♻️ &nbsp;|&nbsp; © 2025
   </footer>
 
   <script>
-    function showTab(tabId) {
-      const contents = document.querySelectorAll('.content');
-      contents.forEach(c => c.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
+    // Cambiar pestañas
+    function activateTab(event) {
+      event.preventDefault();
+      const targetId = event.currentTarget.getAttribute('href').substring(1);
+      const sections = document.querySelectorAll('main section.card');
+      sections.forEach(sec => {
+        if (sec.id === targetId) {
+          sec.style.display = 'block';
+          sec.classList.add('active');
+        } else {
+          sec.style.display = 'none';
+          sec.classList.remove('active');
+        }
+      });
+      // Cambiar active en menú
+      document.querySelectorAll('nav a').forEach(link => {
+        link.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
     }
-  </script>
 
+    // Mostrar primero sección Inicio
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('nav a.active').click();
+    });
+  </script>
 </body>
 </html>
