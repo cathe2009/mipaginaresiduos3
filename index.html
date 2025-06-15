@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Separación Responsable de Residuos</title>
+  <style>
+    :root {
+      --verde-oscuro: #2e7d32;
+      --verde-claro: #a5d6a7;
+      --verde-medio: #66bb6a;
+      --fondo: #e8f5e9;
+      --blanco: #ffffff;
+      --sombra: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--fondo);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--verde-oscuro), var(--verde-medio));
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px var(--sombra);
+    }
+
+    header h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+
+    header h2 {
+      font-size: 1.1em;
+      font-weight: normal;
+    }
+
+    header p {
+      font-size: 1.1em;
+      margin-top: 12px;
+      color: #e0f2f1;
+      font-style: italic;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: var(--verde-claro);
+      justify-content: center;
+      border-bottom: 2px solid var(--verde-medio);
+    }
+
+    nav a {
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #1b5e20;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      border-radius: 5px 5px 0 0;
+      margin: 5px;
+    }
+
+    nav a:hover {
+      background-color: var(--verde-medio);
+      color: white;
+    }
+
+    .content {
+      display: none;
+      padding: 30px 20px;
+      animation: fadeIn 1s ease;
+      background-color: var(--blanco);
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px var(--sombra);
+    }
+
+    .active {
+      display: block;
+    }
+
+    h2 {
+      color: var(--verde-oscuro);
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      background-color: var(--verde-claro);
+      margin: 8px 0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px var(--sombra);
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: #c8e6c9;
+      padding: 20px;
+      text-align: center;
+      color: #2e7d32;
+      font-weight: bold;
+      border-top: 2px solid #81c784;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Separación Responsable de Residuos Sólidos</h1>
+    <h2>y desarrollo de hábitos conscientes de consumo en el CBTis 118 y la comunidad</h2>
+    <p>♻️ Educar en conciencia, actuar por el planeta.</p>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showTab('inicio')">Inicio</a>
+    <a href="#" onclick="showTab('ciencias')">Ciencias Sociales</a>
+    <a href="#" onclick="showTab('puericultura')">Puericultura</a>
+    <a href="#" onclick="showTab('energia')">Conservación de la Energía</a>
+    <a href="#" onclick="showTab('matematicas')">Pensamiento Matemático</a>
+    <a href="#" onclick="showTab('ingles')">Inglés</a>
+    <a href="#" onclick="showTab('lengua')">Lengua y Comunicación</a>
+  </nav>
+
+  <div id="inicio" class="content active">
+    <h2>🎯 Objetivo General</h2>
+    <p>La comunidad escolar del CBTis 118(estudiantes,
+personal administrativo y docentes) fomentan en la
+
+comunidad cercana al plantel la conciencia y la
+práctica sobre la separación de residuos sólidos a
+partir de la difusión, práctica y desarrollo de hábitos
+
+de consumo conscientes que disminuyan la
+
+generación de dichos residuos tanto en la escuela
+
+como en la comunidad.</p>
+    <h2>🔍 Objetivos Específicos</h2>
+    <ul>
+      <li>1.Comprender la separación de residuos sólidos:
+Brindar capacitación a la comunidad escolar para que comprenda la
+importancia y el proceso adecuado de separación de residuos sólidos.</li>
+      <li>2.Practicar la separación responsable:
+Implementar estrategias (como el aprendizaje basado en retos)
+para garantizar la separación efectiva de residuos sólidos en el centro
+escolar y en las ubicaciones elegidas para intervenir en la comunidad.</li>
+      <li>3.Distribuir residuos a empresas recicladoras:
+Gestionar eficientemente los residuos sólidos, promoviendo distribución a
+empresas recicladoras locales.</li>
+      <li>4.Difundir los logros:
+Compartir las acciones y resultados obtenidos para sensibilizar y motivar a
+otros a separar los residuos, esto a través de los espacios digitales
+generados.</li>
+    </ul>
+  </div>
+
+  <div id="ciencias" class="content">
+    <h2>🌍 Ciencias Sociales</h2>
+    <p>Reflexionamos sobre el impacto social, legal y cultural del consumo.</p>
+    <div style="text-align:center; margin-top:20px;">
+      <a href="https://vt.tiktok.com/ZSkCSHyUg/" target="_blank" style="background-color:#25d366; color:white; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:bold;">
+        ▶️ Ver video en TikTok
+      </a>
+    </div>
+  </div>
+
+  <div id="puericultura" class="content">
+    <h2>🧸 Puericultura</h2>
+    <p>Exploramos el impacto del uso de pañales en la salud, economía y medio ambiente.</p>
+    <p>📄 <a href="archivos/Green-Baby-Health.pdf" target="_blank">Abrir presentación PDF</a></p>
+    <h3>🎥 Video:</h3>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/Kk55Ax3UBnY" frameborder="0" allowfullscreen style="border-radius:10px;"></iframe>
+  </div>
+
+  <div id="energia" class="content">
+    <h2>⚛️ Conservación de la Energía</h2>
+    <p>Proyecto sobre microplásticos y su efecto en órganos humanos:</p>
+    <ul>
+      <li>❤️ Corazón: rigidez arterial</li>
+      <li>🧠 Cerebro: daño neurológico</li>
+      <li>💨 Pulmones: fibrosis</li>
+      <li>🧪 Hígado: alteración celular</li>
+      <li>🚰 Riñones: daño de nefronas</li>
+    </ul>
+    <a href="archivos/reporte-microplasticos.pdf" target="_blank">📄 Descargar reporte completo</a>
+  </div>
+
+  <div id="matematicas" class="content">
+    <h2>📊 Pensamiento Matemático</h2>
+    <p>Aplicamos matemáticas en una colecta de latas:</p>
+    <ul>
+      <li>Cada alumno debía juntar 100 latas.</li>
+      <li>Peso promedio por lata: 14 gramos.</li>
+      <li>100 latas = 1.4 kg → 30 alumnos = 42 kg.</li>
+      <li>Precio por kilo: $20 → Total: $840.</li>
+    </ul>
+    <h3>🧠 Reflexión</h3>
+    <p>Esta actividad muestra cómo lo que se considera basura puede tener valor económico y educativo.</p>
+  </div>
+
+  <div id="ingles" class="content">
+    <h2>🌐 Inglés</h2>
+    <h3>♻️ Poster: Sort Your Waste</h3>
+    <div style="text-align:center; margin: 20px 0;">
+      <a href='https://postimg.cc/HVFqNJv2' target='_blank'><img src='https://i.postimg.cc/Nj0Q5m1W/image-edit-20250614201057.jpg' border='0' alt='Poster'></a>
+    </div>
+  </div>
+
+  <div id="lengua" class="content">
+    <h2>📚 Lengua y Comunicación</h2>
+    <p>Elaboramos una infografía para concientizar sobre el entorno desde el lenguaje visual y escrito.</p>
+    <h3>🖼️ Vista previa:</h3>
+    <div style="text-align:center;">
+      <a href='https://postimg.cc/S22tF9Qd' target='_blank'><img src='https://i.postimg.cc/gJN9hyfC/Infograf-a-PAEC-0001.jpg' border='0' alt='Infografía' width="100%" style="max-width:600px;"></a>
+    </div>
+    <p style="text-align:center;"><a href="https://drive.google.com/file/d/1H6ZZ5uhOPSmqSANsLoLFWGrwXV7oEOmy/view?usp=drivesdk" target="_blank">📥 Descargar infografía PDF</a></p>
+  </div>
+
+  <footer>
+    Créditos: Fonseca Arias Karen · López Sánchez Ángel Dorian · Mendoza Benítez Catherine Linette · Nieves Moya María Guadalupe · Santos Pérez Andrea
+  </footer>
+
+  <script>
+    function showTab(tabId) {
+      const contents = document.querySelectorAll('.content');
+      contents.forEach(c => c.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
